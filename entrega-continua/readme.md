@@ -42,11 +42,17 @@
 - Entregar software com alta qualidade e grande valor de maneira eficiente, rápida e confiável.
 
 I) Automatize
+
 II) Versione
+
 III) Repita
+
 IV) Garanta qualidade
+
 V) Defina "done"
+
 VI) Cria delivery team (Todos os envolvidos na criação são resposáveis pela entrega)
+
 VII) Usa melhoria contínua
 
 <br>

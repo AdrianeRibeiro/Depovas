@@ -1,6 +1,3 @@
-corporativotec@twygo.com
-Euax@2022
-
 # Integração Contínua (CI)
 
 - Significa integrar as alterações no mainline (master ou trunk) diariamente. Isso é feito utilizando um sistema de controle de versão (VCS)
