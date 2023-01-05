@@ -62,3 +62,35 @@ VII) Usa melhoria contínua
 - Cultura Devops
 - Patters
 - Arquitetura: testability, deployability, algumas mudanças para facilitar a testability e deployability
+
+# Boas práticas
+
+- pipeline é a única forma de deploy
+- manter o pipeline o mais rápido possível - otimize-o
+- build no ínicio e apenas uma vez
+- build independente do ambiente
+- ambiente iguais / semelhantes ao de produção
+- ambientes efêmeros (temporários)
+- deploy para ambientes de maneira igual
+
+# Pipeline de implantação
+
+```Unit Test --> Aceitação Automatizada --> Homologação --> Produção```
+
+- As etapas existem de forma a receber feedback o mais rápido possível
+
+# Commit Stage
+
+- deve iniciar a cada commit e executar rápido (menos de 10 minutos)
+- build: Primeiro passo é buildar a aplicação
+- testes unitários e de integração: logo após o build é rodado os testes, pois são mais rápidos (feedback)
+- análise de qualidade de código: são gerados relatórios. Podem ser executados em paralelo aos testes de unidade
+- após o build e os testes passarem, tem-se:
+  - plano de testes pela qualidade
+  - relatório de qualidade
+  - um artefato do build (jar, docker, gem, zip..)
+
+# Teste de aceitação automatizados (AAT)
+
+- foca em testes funcionais, que testam o sistema todo, por isso são mais caros de escrever e manter
+- inicia após o commit stage e é mais demorado
