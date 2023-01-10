@@ -39,7 +39,7 @@
 
 # Princípios
 
-- Entregar software com alta qualidade e grande valor de maneira eficiente, rápida e confiável.
+> Entregar software com alta qualidade e grande valor de maneira eficiente, rápida e confiável.
 
 I) Automatize
 
@@ -63,6 +63,8 @@ VII) Usa melhoria contínua
 - Patters
 - Arquitetura: testability, deployability, algumas mudanças para facilitar a testability e deployability
 
+<br>
+
 # Boas práticas
 
 - pipeline é a única forma de deploy
@@ -73,11 +75,15 @@ VII) Usa melhoria contínua
 - ambientes efêmeros (temporários)
 - deploy para ambientes de maneira igual
 
+<br>
+
 # Pipeline de implantação
 
-```Unit Test --> Aceitação Automatizada --> Homologação --> Produção```
+> ```Unit Test --> Aceitação Automatizada --> Homologação --> Produção```
 
 - As etapas existem de forma a receber feedback o mais rápido possível
+
+<br>
 
 # Commit Stage
 
@@ -90,7 +96,76 @@ VII) Usa melhoria contínua
   - relatório de qualidade
   - um artefato do build (jar, docker, gem, zip..)
 
+<br>
+
 # Teste de aceitação automatizados (AAT)
 
 - foca em testes funcionais, que testam o sistema todo, por isso são mais caros de escrever e manter
 - inicia após o commit stage e é mais demorado
+
+<br>
+
+# Homologação (User Acceptance Testing Stage)
+
+- serve para o usuário final validar se o software atende aos requisitos e expectativas
+- objetivos:
+  - testar o deploy no ambiente igual ao de produção
+  - dar feedback para a equipe sobre a aceitação e usabilidade do software
+  - validar se o software atende as expectativas
+
+<br>
+
+# Testes de carga (Capacity Testing Stage)
+
+- deve ter metas claras, com monitoração do sistema
+- usar ferramentas de monitoração
+- JMeter..
+- não precisam rodar a cada build, mas idealmente seguem um ciclo constante
+
+<br>
+
+# Atributos que influenciam a entrega contínua
+
+- Testabilidade: todo pipeline é relacionado com testes e o feedback deles. Um software sem teste ou que é difícil testar, não atende a integração e nem a a entrega contínua.
+
+- Deployabilidade: define a facilidade de implantar o software. 
+
+<br>
+
+# Deploy x Release
+
+- São duas operações distintas. Possível fazer deploy da aplicação, mas não publicar as novas releases.
+- Deploy é colocar as alterações em produção.        
+- Release é deixar as alterações visíveis.
+
+<br>
+
+# Release Pattern
+
+- `Blue/Green Deployment`
+
+  - já fez o deploy
+  - tem-se duas versões: a antiga (azul) e a nova (verde)
+  - em algum momento é feito o switch entre essas versões
+  - todos os usuários vão ser direcionados para o novo ambiente
+  - o azul vai continuar funcionando por um tempo
+  - cliente não percebe essa mudança
+
+<br>
+
+- `Canary Release`
+
+  - as duas versão versões (antiga (azul) e nova (verde)) estão sendo utilizadas ao mesmo tempo, porém a nova versão não está sendo usada por todos
+
+<br>
+
+- `Feature Toggles`
+
+  - estratégia de dark launching - features invísiveis, mas o cliente ainda não tem acesso (ou só alguns clientes).
+  - feito via configuração - if
+
+
+
+
+
+
